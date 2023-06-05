@@ -1,0 +1,4 @@
+git remote add origin https://github.com/PromDex/ML-in-businesses.git
+git push -u origin master
+
+
