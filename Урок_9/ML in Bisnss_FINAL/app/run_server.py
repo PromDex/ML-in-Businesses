@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 12,
    "id": "68fc6745-8e23-43c9-9c79-22dd9954ad1d",
    "metadata": {},
    "outputs": [
@@ -24,7 +24,9 @@
      "output_type": "stream",
      "text": [
       "WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\n",
+      " * Running on all addresses (0.0.0.0)\n",
       " * Running on http://127.0.0.1:8181\n",
+      " * Running on http://192.168.1.217:8181\n",
       "Press CTRL+C to quit\n",
       " * Restarting with stat\n"
      ]
@@ -40,6 +42,7 @@
     }
    ],
    "source": [
+    "#%tb\n",
     "# USAGE\n",
     "# Start the server:\n",
     "# \tpython run_server.py\n",
@@ -102,13 +105,13 @@
     "\t\tinput_data = pd.DataFrame({\n",
     "\t\t\t'auctionid': [request_json.get('auctionid', '')],\n",
     "\t\t\t'bidderid': [request_json.get('bidderid', '')],\n",
-    "\t\t\t'bid': [float(request_json.get('bid', ''))],\n",
-    "\t\t\t'bidderrate': [float(request_json.get('bidderrate', ''))],\n",
-    "\t\t\t'openbid': [float(request_json.get('openbid', ''))],\n",
-    "\t\t\t'price': [float(request_json.get('price', ''))],\n",
-    "\t\t\t'daystolive': [int(request_json.get('daystolive', ''))],\n",
-    "\t\t\t'hourstolive': [int(request_json.get('hourstolive', ''))],\n",
-    "\t\t\t'finalprice': [float(request_json.get('finalprice', ''))],\n",
+    "\t\t\t'bid': [(request_json.get('bid', ''))],\n",
+    "\t\t\t'bidderrate': [(request_json.get('bidderrate', ''))],\n",
+    "\t\t\t'openbid': [(request_json.get('openbid', ''))],\n",
+    "\t\t\t'price': [(request_json.get('price', ''))],\n",
+    "\t\t\t'daystolive': [(request_json.get('daystolive', ''))],\n",
+    "\t\t\t'hourstolive': [(request_json.get('hourstolive', ''))],\n",
+    "\t\t\t'finalprice': [(request_json.get('finalprice', ''))],\n",
     "\t\t\t'itemtype': [request_json.get('itemtype', '')]\n",
     "\t\t}, index=[0])\n",
     "\t\tlogger.info(f'{curr_time} Data: {input_data.to_dict()}')\n",
@@ -125,22 +128,32 @@
     "\t\t\t# Request unsuccessful\n",
     "\t\t\tresponse['success'] = False\n",
     "\n",
-    "\t# return the data dictionary as a JSON response\n",
+    "\t# вернуть словарь данных в виде ответа JSON\n",
     "\treturn flask.jsonify(response)\n",
     "\n",
-    "# if this is the main thread of execution first load the model and\n",
-    "# then start the server\n",
+    "# если это основной поток выполнения, сначала загрузите модель и\n",
+    "# затем запускаем сервер\n",
     "if __name__ == \"__main__\":\n",
     "\tprint((\"* Loading the model and Flask starting server...\"\n",
     "\t\t\"please wait until server has fully started\"))\n",
     "\tport = int(os.environ.get('PORT', 8181))\n",
-    "\tapp.run(host='127.0.0.1', debug=True, port=port)"
+    "\tapp.run(host='0.0.0.0', debug=True, port=port)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "4d5942dc-2bf5-4ca7-b204-c19d78d465b6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#%tb"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "59060d58-ebd8-410b-b818-e73035a2164a",
+   "id": "8cf84489-9410-4a50-b6b5-6700ac75aea0",
    "metadata": {},
    "outputs": [],
    "source": []
