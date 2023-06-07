@@ -42,21 +42,6 @@ API: flask
 
 
 
-## Как запустить
-
-1. Установите необходимые пакеты, в консоле пайтона запустив:
-
-pip install -r requirements.txt
-
-
-Используемые признаки:
-
-'Auction_Duration','Bidder_Tendency','Bidding_Ratio','Successive_Outbidding','Last_Bidding','Auction_Bids','Starting_Price_Average','Early_Bidding','Winning_Ratio'
-
-
-
-
-
 
 
 
