@@ -1,0 +1,6 @@
+Урок 8. Проверяем работу модели на практике: A/B-тестирование
+Ответить на вопросы AB_practice.ipynb
+
+или
+
+Взять датасет из google диска: https://drive.google.com/file/d/1MpWBFIbqu4mbiD0BBKYX6YhS-f4mN3Z_. Проверить гипотезу о том, в каком варианте теста (control/personalization) больше конверсия (converted) и значимо ли это отличие статистически.
